@@ -35,5 +35,5 @@
 
 ### Как запустить:
 
-npm run dev - режим разработки
-npm run build - сборка
+1. npm run dev - режим разработки
+2. npm run build - сборка
