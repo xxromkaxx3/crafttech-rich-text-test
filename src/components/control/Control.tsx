@@ -1,32 +1,44 @@
-const Control = ({ tool, setTool }: any) => {
-  const handleOnChange = (e: any) => {
-    setTool(e.target.value);
+interface IControlProps {
+  tool: string
+  setTool(e:string): void
+}
+
+const Control = ({ tool, setTool }: IControlProps) => {
+  const handleOnChange = (value: string) => {
+    setTool(value);
   };
+  
 
   return (
-    <div style={{ position: "absolute", top: 0 }}>
-      <div>
-        <input
-          type="radio"
+    <div className="buttons-wrap" style={{ position: "absolute", top: 0 }}>
+      <div className="button-wrap">
+        <button
+          style={{
+            background: tool === 'cursor' ? '#4338CA' : '#6366F1'
+          }}
+          className="button"
           id="cursor"
           name="control"
           value="cursor"
-          checked={tool === "cursor"}
-          onChange={handleOnChange}
-        />
-        <label htmlFor="cursor">Взаимодействие</label>
+          onClick={() => handleOnChange('cursor')}
+        >
+          <label htmlFor="cursor">Взаимодействие</label>
+        </button>
       </div>
 
-      <div>
-        <input
-          type="radio"
+      <div className="button-wrap">
+        <button
+          style={{
+            background: tool === 'shape' ? '#4338CA' : '#6366F1'
+          }}
+          className="button"
           id="shape"
           name="control"
           value="shape"
-          checked={tool === "shape"}
-          onChange={handleOnChange}
-        />
-        <label htmlFor="shape">Добавление</label>
+          onClick={() => handleOnChange('shape')}
+        >
+          <label htmlFor="shape">Добавление</label>
+        </button>
       </div>
     </div>
   );
